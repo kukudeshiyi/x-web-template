@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="light" dir="ltr">
+  <head>
+    <title>Features</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin"> 
+    
+    
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i
+&display=swap">
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i
+&display=swap">
+
+
+<style>
+  :root {
+    --color-accent: #0095f6;
+    --cover-image: url(/content/images/2025/12/3D-Rendered-Overlapping-Faces-Sculpture-2.jpeg);
+    --font-heading: var(--gh-font-heading, "Inter");
+    --font-body: var(--gh-font-body, "Inter");
+    --post-card-image-aspect-ratio: 3/2;
+    --radius-card: 12px;
+  }
+</style>
+
+<script>
+  window.themeConfig = {
+    colorScheme: "light",
+    site: {
+      url: "/",
+      title: "Luno",
+      description: "Where minimalism meets infinite possibility.",
+      accentColor: "#0095f6",
+      icon: "",
+      facebook: "ghost",
+      twitter: "@ghost",
+      primaryNavigation: [
+          {
+            label: "[icon=house] Home",
+            url: "/"
+          },
+          {
+            label: "[icon=palette] Styleguide",
+            url: "/styleguide/"
+          },
+          {
+            label: "[icon=crown] Features",
+            url: "/features/"
+          },
+          {
+            label: "Post Layouts",
+            url: "#"
+          },
+          {
+            label: "- Default",
+            url: "/tropical-paradise-found/"
+          },
+          {
+            label: "- Video",
+            url: "/the-sandbar-that-wasnt-there/"
+          },
+          {
+            label: "- Classic",
+            url: "/thailands-secret-cove/"
+          },
+          {
+            label: "- Centered",
+            url: "/when-paradise-becomes-sanctuary/"
+          },
+          {
+            label: "- Inline Image",
+            url: "/cambodias-quiet-temples/"
+          },
+          {
+            label: "- No Image",
+            url: "/rhythm-of-the-lagoon/"
+          },
+          {
+            label: "Custom Pages",
+            url: "#"
+          },
+          {
+            label: "- [icon=send] Contact",
+            url: "/contact/"
+          },
+          {
+            label: "- [icon=gem] Membership",
+            url: "/membership/"
+          },
+          {
+            label: "- [icon=tag] Tags",
+            url: "/topics/"
+          },
+          {
+            label: "- [icon=users-round] Authors",
+            url: "/authors/"
+          },
+          {
+            label: "- [icon=shopping-cart] Shop",
+            url: "/shop/"
+          },
+          {
+            label: "- [icon=user-plus] Sign Up",
+            url: "/sign-up/"
+          },
+          {
+            label: "- [icon=user] Sign In",
+            url: "/sign-in/"
+          },
+      ],
+      secondaryNavigation: [
+          {
+            label: "Post Layouts",
+            url: "#"
+          },
+          {
+            label: "- Default",
+            url: "/this-bali-villa-redefined-paradise/"
+          },
+          {
+            label: "- Full Screen Image",
+            url: "/silence-in-the-dolomites/"
+          },
+          {
+            label: "- Gradient Image",
+            url: "/carving-silence/"
+          },
+          {
+            label: "- Left Image",
+            url: "/best-day-on-the-water-in-maldives/"
+          },
+          {
+            label: "- Right Image",
+            url: "/found-paradise-my-secret-calanque-in-provence/"
+          },
+          {
+            label: "- No Image",
+            url: "/the-tyrants-trail/"
+          },
+          {
+            label: "Features",
+            url: "#"
+          },
+          {
+            label: "- Tags Page",
+            url: "/topics/"
+          },
+          {
+            label: "- Authors Page",
+            url: "/authors/"
+          },
+          {
+            label: "- Membership Page",
+            url: "/membership/"
+          },
+          {
+            label: "- Contact Page",
+            url: "/contact/"
+          },
+          {
+            label: "- Sign In Page",
+            url: "/sign-in/"
+          },
+          {
+            label: "- Sign Up Page",
+            url: "/sign-up/"
+          },
+          {
+            label: "Terms of Use",
+            url: "#"
+          },
+          {
+            label: "- Privacy Policy",
+            url: "https://luxethemes.com/privacy-policy"
+          },
+          {
+            label: "- Refund Policy",
+            url: "https://luxethemes.com/terms-of-service#refunds"
+          },
+          {
+            label: "- Terms of Service",
+            url: "/terms-of-service/"
+          },
+          {
+            label: "- Documentation",
+            url: "https://luxethemes.com/docs/flow"
+          },
+          {
+            label: "Our Themes",
+            url: "#"
+          },
+          {
+            label: "- Flow",
+            url: "/"
+          },
+          {
+            label: "- Rune",
+            url: "https://rune.demo.luxethemes.com/"
+          },
+          {
+            label: "- Homa",
+            url: "https://homa.demo.luxethemes.com/"
+          },
+          {
+            label: "- Nio",
+            url: "https://nio.demo.luxethemes.com/"
+          },
+          {
+            label: "- Shiro",
+            url: "https://shiro.demo.luxethemes.com/"
+          },
+      ]
+    }
+  }
+</script>
+
+  <script>
+    const featuredTags = ("hidden-gems, wellness-retreats").split(',');
+
+    const featuredStyles = featuredTags.map((tag, index) => {
+      return `
+        [data-featured-tag="${tag.trim()}"] {
+          order: ${index + 1};
+        }
+      `;
+    }).join('');
+
+    const style = document.createElement('style');
+    style.textContent = featuredStyles;
+    document.head.appendChild(style);
+  </script>
+
+    <link rel="stylesheet" type="text/css" href="/assets/build/style.css?v=c9dc3f59de">
+    <link rel="manifest" data-manifest />
+
+    <script type="module" src="/assets/build/main.js?v=c9dc3f59de"></script>
+    <script defer src="/public/portal-fallback.js"></script>
+
+    <meta name="description" content="Discover all the powerful features that make Luno the perfect Ghost theme for modern publishers.">
+    <link rel="canonical" href="/features/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Luno">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Features">
+    <meta property="og:description" content="Discover all the powerful features that make Luno the perfect Ghost theme for modern publishers.">
+    <meta property="og:url" content="/features/">
+    <meta property="og:image" content="/content/images/2025/12/3D-Rendered-Overlapping-Faces-Sculpture-2.jpeg">
+    <meta property="article:published_time" content="2025-12-21T14:04:31.000Z">
+    <meta property="article:modified_time" content="2025-12-21T15:00:41.000Z">
+    <meta property="article:publisher" content="https://www.facebook.com/ghost">
+    <meta property="article:author" content="https://www.facebook.com/james.hartley.wellness">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Features">
+    <meta name="twitter:description" content="Discover all the powerful features that make Luno the perfect Ghost theme for modern publishers.">
+    <meta name="twitter:url" content="/features/">
+    <meta name="twitter:image" content="/content/images/2025/12/3D-Rendered-Overlapping-Faces-Sculpture-2.jpeg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="James Hartley">
+    <meta name="twitter:site" content="@ghost">
+    <meta name="twitter:creator" content="@jameshartley">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1593">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Luno",
+        "url": "/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "/content/images/2025/12/l2-logo.webp"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "James Hartley",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/content/images/2025/12/alan.jpg",
+            "width": 1024,
+            "height": 1024
+        },
+        "url": "/author/james-hartley/",
+        "sameAs": [
+            "https://jameshartley.wellness",
+            "https://www.facebook.com/james.hartley.wellness",
+            "https://x.com/jameshartley",
+            "https://bsky.app/profile/@jameshartley.bsky.social",
+            "https://@jameshartley@mastodon.social"
+        ]
+    },
+    "headline": "Features",
+    "url": "/features/",
+    "datePublished": "2025-12-21T14:04:31.000Z",
+    "dateModified": "2025-12-21T15:00:41.000Z",
+    "description": "Discover all the powerful features that make Luno the perfect Ghost theme for modern publishers.",
+    "mainEntityOfPage": "/features/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.0">
+    <link rel="alternate" type="application/rss+xml" title="Luno" href="/rss/">
+    <style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style><script async src="https://js.stripe.com/v3/"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="2a698e1d74ffac3c04565f40cc" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=c9dc3f59de"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=c9dc3f59de">
+    <script defer src="/public/member-attribution.min.js?v=c9dc3f59de"></script><style>:root {--ghost-accent-color: #0095f6;}</style>
+    <script>
+ // Add links for the social platforms you want to display
+ window.social = {
+   instagram: "https://instagram.com/your_username",
+   linkedin: "https://linkedin.com/in/your_profile",
+   youtube: "https://youtube.com/your_channel",
+ };
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '574401515650317');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=574401515650317&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TSQ6559T');</script>
+<!-- End Google Tag Manager -->
+    <style>
+    @media screen and (min-width: 860px) {
+.kg-gallery-card {
+	
+    max-width: calc(100% + var(--content-padding-x) * 4);
+}
+    }
+    
+.kg-gallery-container {
+    background: var(--color-page-alt);
+    padding: 0 1rem 1rem;
+    gap: 1rem;
+    }
+.kg-gallery-row {
+    margin-top: 1rem !important;
+gap: 1rem;
+    }
+</style>
+  </head>
+  <body class="page-template page-features">
+    
+<div class="w-screen">
+  
+<div
+  data-nav-close
+  class="
+    fixed inset-0 bg-black/20 backdrop-blur-xs z-10 opacity-0 pointer-events-none transition-opacity duration-250
+
+    xl:hidden max-xl:[body[data-nav-open='true']_&]:opacity-100 max-xl:[body[data-nav-open='true']_&]:pointer-events-auto
+  "
+>
+</div>
+
+<aside 
+  class="
+    site-sidebar 
+    
+    fixed top-0 h-screen bg-page border-r border-stroke w-(--site-sidebar-width) z-20 transition-transform duration-250
+    
+    max-xl:-translate-x-full max-xl:[body[data-nav-open='true']_&]:translate-x-0   
+  "
+>
+  <div class="flex flex-col pt-6 pb-16 px-8 max-h-full min-h-screen no-scrollbar overflow-y-auto">
+    <div class="flex items-center justify-between mb-8">
+      
+<a href="/" class="site-logo " style="" aria-label="Luno - Home">
+    <img src="/content/images/2025/12/l2-logo.webp" alt="Luno" loading="eager" class="logo"/>
+      <img src="/content/images/2025/12/l2-logo-w-1.png" alt="Luno" loading="eager" class="logo-dark" />
+</a>
+        <div class="flex items-center justify-center p-0.75 text-content-alt rounded-full gap-0.75 border border-stroke/70 text-[10px] cursor-pointer" data-color-scheme-toggle>
+          <span data-icon="sun" class="opacity-70 w-5 h-5 p-2 flex items-center justify-center bg-page rounded-full [:where(html[data-color-scheme='light'])_&]:bg-stroke transition-all duration-150"></span>
+          <span data-icon="moon" class="opacity-70 w-5 h-5 p-2 flex items-center justify-center bg-page rounded-full [:where(html[data-color-scheme='dark'])_&]:bg-stroke transition-all duration-150"></span>
+        </div>
+    </div>
+
+      <p class="max-md:hidden text-sm text-content-muted mb-8">Where minimalism meets infinite possibility.</p>
+
+    <div class="flex items-center relative w-full mb-8 z-10 xl:hidden" data-ghost-search>
+      <span data-icon="search" class="absolute left-3 top-1/2 -translate-y-1/2 z-1 text-content-alt text-sm"></span>
+      <input type="text" placeholder='Search...' class="w-full input pl-9 shadow-2xs">
+      <span class="absolute right-3 top-1/2 -translate-y-1/2 z-1 text-content-muted text-xs opacity-80" data-search-hint>⌘K</span>
+    </div>
+
+    <menu-nav
+      class="flex flex-1"
+      values-path="themeConfig.site.primaryNavigation"
+      orientation="vertical"
+      nav-class="text-sm"
+      item-class="group w-full flex items-center py-1.5 pr-3 h-8 aria-[current=page]:font-bold aria-[current=page]:text-accent"
+      group-class="flex flex-col whitespace-nowrap flex-wrap h-fit w-full not-first:mt-8"
+      group-header-class="font-medium text-content-alt mb-2 h-5"
+      group-item-class="group w-full flex items-center py-1.5 pl-4 pr-3 h-8 border-l border-stroke/70 aria-[current=page]:font-bold aria-[current=page]:border-l-accent hover:border-l-content/50 aria-[current=page]:text-accent"
+      icon-class="w-4 h-4 line-height-1 mr-3 opacity-70 group-aria-[current=page]:opacity-100 group-hover:opacity-95 transition-opacity duration-250"
+      aria-label="Primary Navigation"
+    ></menu-nav>
+
+    <social-icons class="xl:hidden mt-16 text-sm opacity-90 hover:opacity-100 transition-opacity duration-250" aria-label="Mobile Social Media Links"></social-icons>
+    
+  <div class="flex items-center gap-4 text-sm capitalize tracking-wide xl:hidden justify-end flex-row-reverse pt-4 mt-4 border-t">
+        <a href="/sign-in/" class="flex gap-2 items-center font-medium">
+          Sign In
+        </a>
+        <a href="/sign-up/" class="button">
+          
+    <span data-icon="portal_icon_1" class="text-xs"></span>
+
+    Subscribe
+        </a>
+  </div>
+  </div>
+  
+  <div class="sticky max-xl:hidden bottom-0 py-4 px-8 border-t  bg-page/80 backdrop-blur-xs w-full">
+    <social-icons class="text-sm opacity-90 hover:opacity-100 transition-opacity duration-250" aria-label="Desktop Social Media Links"></social-icons>
+  </div>
+</aside>
+  <div class="site-content w-full xl:pl-(--site-sidebar-width)">
+
+    <header class="container relative z-1 items-center justify-between !py-6 hidden xl:flex">
+      <div class="flex items-center relative w-76" data-ghost-search>
+        <span data-icon="search" class="absolute left-3 top-1/2 -translate-y-1/2 z-1 text-content-alt text-sm"></span>
+        <input type="text" placeholder='Search...' class="w-full input pl-9 shadow-2xs">
+        <span class="absolute right-3 top-1/2 -translate-y-1/2 z-1 text-content-muted text-xs opacity-90" data-search-hint>⌘K</span>
+      </div>
+
+      
+  <div class="flex items-center gap-4 text-sm capitalize tracking-wide bg-page/60 backdrop-blur-sm p-1 pl-5 rounded-full -m-1">
+        <a href="/sign-in/" class="flex gap-2 items-center font-medium">
+          Sign In
+        </a>
+        <a href="/sign-up/" class="button">
+          
+    <span data-icon="portal_icon_1" class="text-xs"></span>
+
+    Subscribe
+        </a>
+  </div>
+    </header>
+
+    <header class="container relative z-1 flex items-center justify-between !py-6 xl:hidden" data-color-scheme="">
+      
+<a href="/" class="site-logo " style="" aria-label="Luno - Home">
+    <img src="/content/images/2025/12/l2-logo.webp" alt="Luno" loading="eager" class="logo"/>
+      <img src="/content/images/2025/12/l2-logo-w-1.png" alt="Luno" loading="eager" class="logo-dark" />
+</a>
+      <div role="button" tabindex="0" aria-label="Open navigation menu" class="group flex items-center justify-center w-9 h-9 text-content-alt" data-nav-toggle>
+        <span data-icon="menu_search" class="text-2xl group-hover:scale-105 transition-transform ease-out-quad duration-400 text-content-alt"></span>
+      </div>
+    </header>
+
+    <main id="site-main" role="main" class="container !mt-3">
+      
+
+<article class="mt-2 pt-12 lg:pt-16 post no-image">
+    
+
+  <div class="flex flex-col items-center mb-16">
+    <div class="flex flex-col gap-4 max-w-(--post-content-max-width) w-full">
+        <h1 class="!text-5xl leading-[1.15] mb-3">Features</h1>
+          <p class="opacity-80 text-lg font-light italic">Discover all the powerful features that make Luno the perfect Ghost theme for modern publishers.</p>
+
+      
+<article class="post-content mb-0 ">
+  <div class="post-body prose" data-content>
+    <p>Luno is a premium Ghost theme designed for creators who demand flexibility, elegance, and performance. Every feature has been carefully crafted to help you build a stunning publication that stands out.</p><p></p><hr><p></p><h2 id="flexible-design-system">Flexible Design System</h2><p></p><p>Take full control of your site's appearance with powerful customization options that require no coding.</p><figure class="kg-card kg-gallery-card kg-width-wide kg-card-hascaption"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="/content/images/2025/12/home-2.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/home-2.jpeg 600w, /content/images/size/w1000/2025/12/home-2.jpeg 1000w, /content/images/size/w1600/2025/12/home-2.jpeg 1600w, /content/images/size/w2400/2025/12/home-2.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/home-dark.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/home-dark.jpeg 600w, /content/images/size/w1000/2025/12/home-dark.jpeg 1000w, /content/images/size/w1600/2025/12/home-dark.jpeg 1600w, /content/images/size/w2400/2025/12/home-dark.jpeg 2400w" sizes="(min-width: 720px) 720px"></div></div></div><figcaption><p dir="ltr"><span style="white-space: pre-wrap;">Light &amp; Dark mode</span></p></figcaption></figure><ul><li><strong>Color Schemes</strong> — Choose from Light, Dark, or System mode that automatically matches your visitor's device preferences</li><li><strong>Custom Typography</strong> — 16+ built-in fonts including Inter, Fraunces, Lora, Roboto, and more. Mix heading and body fonts for unique combinations</li><li><strong>Logo Variants</strong> — Upload separate logos for light and dark modes to ensure perfect visibility</li><li><strong>CSS Variables</strong> — Fine-tune colors, spacing, and styling through simple code injection</li></ul><p></p><hr><p></p><h2 id="powerful-homepage-options">Powerful Homepage Options</h2><p></p><p>Create the perfect first impression with flexible homepage components that adapt to your content strategy.</p><p></p><h3 id="hero-section">Hero Section</h3><p>Five distinct hero layouts to showcase your brand message:</p><ul><li><strong>Default</strong> — Side-by-side content and image</li><li><strong>Centered</strong> — Image above or below content</li><li><strong>Cover</strong> — Full-width background with overlay</li><li><strong>Split Start</strong> — Image left, content right</li><li><strong>Split End</strong> — Content left, image right</li></ul><figure class="kg-card kg-gallery-card kg-width-wide kg-card-hascaption"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="/content/images/2025/12/hero-1-1.jpeg" width="2000" height="1011" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/hero-1-1.jpeg 600w, /content/images/size/w1000/2025/12/hero-1-1.jpeg 1000w, /content/images/size/w1600/2025/12/hero-1-1.jpeg 1600w, /content/images/size/w2400/2025/12/hero-1-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/hero-2.jpeg" width="2000" height="1011" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/hero-2.jpeg 600w, /content/images/size/w1000/2025/12/hero-2.jpeg 1000w, /content/images/size/w1600/2025/12/hero-2.jpeg 1600w, /content/images/size/w2400/2025/12/hero-2.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/hero-3.jpeg" width="2000" height="1011" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/hero-3.jpeg 600w, /content/images/size/w1000/2025/12/hero-3.jpeg 1000w, /content/images/size/w1600/2025/12/hero-3.jpeg 1600w, /content/images/size/w2400/2025/12/hero-3.jpeg 2400w" sizes="(min-width: 720px) 720px"></div></div><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="/content/images/2025/12/hero-4.jpeg" width="2000" height="1011" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/hero-4.jpeg 600w, /content/images/size/w1000/2025/12/hero-4.jpeg 1000w, /content/images/size/w1600/2025/12/hero-4.jpeg 1600w, /content/images/size/w2400/2025/12/hero-4.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/hero-5.jpeg" width="2000" height="1011" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/hero-5.jpeg 600w, /content/images/size/w1000/2025/12/hero-5.jpeg 1000w, /content/images/size/w1600/2025/12/hero-5.jpeg 1600w, /content/images/size/w2400/2025/12/hero-5.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/hero-6.jpeg" width="2000" height="1011" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/hero-6.jpeg 600w, /content/images/size/w1000/2025/12/hero-6.jpeg 1000w, /content/images/size/w1600/2025/12/hero-6.jpeg 1600w, /content/images/size/w2400/2025/12/hero-6.jpeg 2400w" sizes="(min-width: 720px) 720px"></div></div></div><figcaption><p dir="ltr"><span style="white-space: pre-wrap;">Multiple variations of Homepage Hero section</span></p></figcaption></figure><p></p><h3 id="content-discovery">Content Discovery</h3><p>Help readers find what they're looking for with intuitive navigation components:</p><figure class="kg-card kg-gallery-card kg-width-wide kg-card-hascaption"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="/content/images/2025/12/tags-filter-1.jpeg" width="2000" height="1011" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/tags-filter-1.jpeg 600w, /content/images/size/w1000/2025/12/tags-filter-1.jpeg 1000w, /content/images/size/w1600/2025/12/tags-filter-1.jpeg 1600w, /content/images/size/w2400/2025/12/tags-filter-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/authors-carousel-1.jpeg" width="2000" height="1011" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/authors-carousel-1.jpeg 600w, /content/images/size/w1000/2025/12/authors-carousel-1.jpeg 1000w, /content/images/size/w1600/2025/12/authors-carousel-1.jpeg 1600w, /content/images/size/w2400/2025/12/authors-carousel-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div></div></div><figcaption><p dir="ltr"><span style="white-space: pre-wrap;">Tags filter &amp; Authors list on homepage</span></p></figcaption></figure><ul><li><strong>Featured Tags</strong> — Highlight key content categories with dedicated sections</li><li><strong>Tags Carousel</strong> — Horizontal scrolling navigation showing top 15 tags</li><li><strong>Authors Carousel</strong> — Showcase up to 100 authors with profiles and social links</li><li><strong>Post Grid</strong> — Customizable aspect ratios and border radius options</li></ul><p></p><hr><p></p><h2 id="6-beautiful-post-layouts">6 Beautiful Post Layouts</h2><p></p><p>Every post deserves the perfect presentation. Choose from six professionally designed templates:</p><p></p><figure class="kg-card kg-gallery-card kg-width-wide kg-card-hascaption"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="/content/images/2025/12/post-default-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/post-default-1.jpeg 600w, /content/images/size/w1000/2025/12/post-default-1.jpeg 1000w, /content/images/size/w1600/2025/12/post-default-1.jpeg 1600w, /content/images/size/w2400/2025/12/post-default-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/post-inline-image-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/post-inline-image-1.jpeg 600w, /content/images/size/w1000/2025/12/post-inline-image-1.jpeg 1000w, /content/images/size/w1600/2025/12/post-inline-image-1.jpeg 1600w, /content/images/size/w2400/2025/12/post-inline-image-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/post-classic-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/post-classic-1.jpeg 600w, /content/images/size/w1000/2025/12/post-classic-1.jpeg 1000w, /content/images/size/w1600/2025/12/post-classic-1.jpeg 1600w, /content/images/size/w2400/2025/12/post-classic-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div></div><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="/content/images/2025/12/post-centered-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/post-centered-1.jpeg 600w, /content/images/size/w1000/2025/12/post-centered-1.jpeg 1000w, /content/images/size/w1600/2025/12/post-centered-1.jpeg 1600w, /content/images/size/w2400/2025/12/post-centered-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/post-no-image-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/post-no-image-1.jpeg 600w, /content/images/size/w1000/2025/12/post-no-image-1.jpeg 1000w, /content/images/size/w1600/2025/12/post-no-image-1.jpeg 1600w, /content/images/size/w2400/2025/12/post-no-image-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/post-video-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/post-video-1.jpeg 600w, /content/images/size/w1000/2025/12/post-video-1.jpeg 1000w, /content/images/size/w1600/2025/12/post-video-1.jpeg 1600w, /content/images/size/w2400/2025/12/post-video-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div></div></div><figcaption><p><span style="white-space: pre-wrap;">Different variations of post template</span></p></figcaption></figure><p></p><ul><li><strong>Default</strong> — Feature image at top with sidebar on desktop</li><li><strong>Classic</strong> — Traditional blog layout with full-width feature image</li><li><strong>Video</strong> — First video displays in header, perfect for tutorials</li><li><strong>Centered</strong> — Single-column, distraction-free reading experience</li><li><strong>Inline Image</strong> — Feature image and title side-by-side</li><li><strong>No Image</strong> — Text-only layout for minimal, focused content</li></ul><p></p><hr><p></p><h2 id="purpose-built-pages">Purpose-Built Pages</h2><p></p><p>Pre-designed page templates for every need:</p><p></p><figure class="kg-card kg-gallery-card kg-width-wide kg-card-hascaption"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="/content/images/2025/12/membership-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/membership-1.jpeg 600w, /content/images/size/w1000/2025/12/membership-1.jpeg 1000w, /content/images/size/w1600/2025/12/membership-1.jpeg 1600w, /content/images/size/w2400/2025/12/membership-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/shop-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/shop-1.jpeg 600w, /content/images/size/w1000/2025/12/shop-1.jpeg 1000w, /content/images/size/w1600/2025/12/shop-1.jpeg 1600w, /content/images/size/w2400/2025/12/shop-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/sign-in.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/sign-in.jpeg 600w, /content/images/size/w1000/2025/12/sign-in.jpeg 1000w, /content/images/size/w1600/2025/12/sign-in.jpeg 1600w, /content/images/size/w2400/2025/12/sign-in.jpeg 2400w" sizes="(min-width: 720px) 720px"></div></div><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="/content/images/2025/12/sign-up.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/sign-up.jpeg 600w, /content/images/size/w1000/2025/12/sign-up.jpeg 1000w, /content/images/size/w1600/2025/12/sign-up.jpeg 1600w, /content/images/size/w2400/2025/12/sign-up.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/contact-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/contact-1.jpeg 600w, /content/images/size/w1000/2025/12/contact-1.jpeg 1000w, /content/images/size/w1600/2025/12/contact-1.jpeg 1600w, /content/images/size/w2400/2025/12/contact-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/authors-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/authors-1.jpeg 600w, /content/images/size/w1000/2025/12/authors-1.jpeg 1000w, /content/images/size/w1600/2025/12/authors-1.jpeg 1600w, /content/images/size/w2400/2025/12/authors-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div></div></div><figcaption><p dir="ltr"><span style="white-space: pre-wrap;">Membership, Shop, Authors, Tags, Contact, Sign In &amp; Sign Up pages</span></p></figcaption></figure><p></p><ul><li><a href="/authors/"><strong>Authors Page</strong></a> — Showcase all site contributors with profiles and social links</li><li><a href="/topics/"><strong>Tags Page</strong></a> — Display all content categories with descriptions</li><li><a href="/membership/"><strong>Membership Page</strong></a> — Present your membership tiers beautifully</li><li><a href="/contact/"><strong>Contact Page</strong></a> — Integrated form support via Formspree or Getform</li><li><a href="/shop/"><strong>Shop Page</strong></a> — Responsive product grid for digital downloads and services</li><li><a href="/sign-in/" rel="noreferrer"><strong>Sign In Page</strong></a> - Customizable dedicated sign in page</li><li><a href="/sign-up/" rel="noreferrer"><strong>Sign Up Page</strong></a> - Customizable dedicated sign up page</li></ul><p></p><hr><h2 id="feels-like-an-app"><strong>Feels Like an App</strong>&nbsp;</h2><p><br>With&nbsp;built-in <strong>PWA support  </strong>visitors on compatible mobile browsers can install your site to their home screen for app-like instant access.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="/content/images/2025/12/app-mode.jpg" class="kg-image" alt="" loading="lazy" width="2000" height="794" srcset="/content/images/size/w600/2025/12/app-mode.jpg 600w, /content/images/size/w1000/2025/12/app-mode.jpg 1000w, /content/images/size/w1600/2025/12/app-mode.jpg 1600w, /content/images/size/w2400/2025/12/app-mode.jpg 2400w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Visitors can install your blog as an app on their device</span></figcaption></figure><h2 id=""></h2><h2 id="intuitive-navigation">Intuitive Navigation</h2><p></p><p>Guide visitors effortlessly through your content with powerful navigation features:</p><p></p><ul><li><strong>Collapsible Sidebar</strong> — Clean, modern navigation that works on all devices</li><li><strong>Icon Support</strong> — Lucide icon library with 1000+ icons for menu items</li><li><strong>Keyboard Search</strong> — Quick access with ⌘K (Mac) or Ctrl+K (Windows)</li><li><strong>Hierarchical Menus</strong> — Group headers and sub-items for organized navigation</li><li><strong>Footer Navigation</strong> — Multi-column secondary links with custom groupings</li></ul><p></p><hr><p></p><h2 id="enhanced-reading-experience">Enhanced Reading Experience</h2><p></p><p>Keep readers engaged with thoughtful features designed for long-form content:</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="/content/images/2025/12/social-share-1.jpeg" width="2000" height="1250" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/social-share-1.jpeg 600w, /content/images/size/w1000/2025/12/social-share-1.jpeg 1000w, /content/images/size/w1600/2025/12/social-share-1.jpeg 1600w, /content/images/size/w2400/2025/12/social-share-1.jpeg 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="/content/images/2025/12/social-share-mobile-1.jpeg" width="788" height="1714" loading="lazy" alt="" srcset="/content/images/size/w600/2025/12/social-share-mobile-1.jpeg 600w, /content/images/2025/12/social-share-mobile-1.jpeg 788w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p></p><ul><li><strong>Table of Contents</strong> — Auto-generated from headings with scroll tracking</li><li><strong>Social Sharing</strong> — 12 platforms including X, LinkedIn, WhatsApp, Threads, Bluesky</li><li><strong>Image Lightbox</strong> — PhotoSwipe-powered full-screen gallery with zoom</li><li><strong>Progress Indicator</strong> — Circular reading progress with scroll-to-top</li><li><strong>Related Posts</strong> — Smart suggestions at article end</li><li><strong>Native Comments</strong> — Ghost's built-in commenting with member permissions</li></ul><p></p><hr><p></p><h2 id="built-for-performance">Built for Performance</h2><p></p><p>Modern technology stack ensuring speed, accessibility, and global reach:</p><p></p><div class="kg-card kg-callout-card kg-callout-card-blue"><div class="kg-callout-emoji">🌍</div><div class="kg-callout-text"><b><strong style="white-space: pre-wrap;">46 Languages</strong></b> — Full internationalization support with translation files for global audiences</div></div><p></p><div class="kg-card kg-callout-card kg-callout-card-green"><div class="kg-callout-emoji">📱</div><div class="kg-callout-text"><b><strong style="white-space: pre-wrap;">PWA Ready</strong></b> — Install as a native app on any device for offline access</div></div><p></p><div class="kg-card kg-callout-card kg-callout-card-grey"><div class="kg-callout-emoji">♾️</div><div class="kg-callout-text"><b><strong style="white-space: pre-wrap;">Infinite Scroll</strong></b> — Seamless content loading for uninterrupted browsing</div></div><p></p><ul><li>Mobile-first responsive design</li><li>Built with Vite + Tailwind CSS v4</li><li>Optimized for Core Web Vitals</li><li>25+ social platforms supported</li></ul><p></p><hr><p></p><div class="kg-card kg-callout-card kg-callout-card-blue"><div class="kg-callout-emoji">🚀</div><div class="kg-callout-text"><b><strong style="white-space: pre-wrap;">Ready to get started?</strong></b> Explore our documentation or join as a member to unlock exclusive content and support.</div></div><p></p><div class="kg-card kg-button-card kg-align-center"><a href="https://luxethemes.com/docs/luno?ref=luno.demo.luxethemes.com" class="kg-btn kg-btn-accent">View Documentation</a></div>
+  </div>
+
+</article>
+
+
+    </div>
+  </div>
+</article>
+
+
+    </main>
+
+    
+<footer class="pt-6 pb-4 bg-page text-content-alt" data-footer>
+  <div class="container">
+    <div class="flex justify-between items-center">
+      
+<a href="/" class="site-logo flex-1" style="" aria-label="Luno - Home">
+    <img src="/content/images/2025/12/l2-logo.webp" alt="Luno" loading="eager" class="logo"/>
+      <img src="/content/images/2025/12/l2-logo-w-1.png" alt="Luno" loading="eager" class="logo-dark" />
+</a>      <social-icons class="flex items-center justify-end flex-1 text-sm opacity-90 hover:opacity-100 transition-opacity duration-250" aria-label="Footer Social Media Links"></social-icons>
+    </div>
+
+    <div class="flex justify-between flex-wrap md:flex-nowrap w-full py-4 my-4 gap-8 border-b border-t  border-b0">
+      <menu-nav
+        class="w-full max-md:basis-full flex-1 shrink-0"
+        values-path="themeConfig.site.secondaryNavigation"
+        orientation="horizontal"
+        nav-class="text-sm"
+        item-class="hover:underline"
+        group-class="flex flex-col gap-1"
+        group-header-class="font-medium mb-1"
+        group-item-class="hover:underline text-sm text-content opacity-90 hover:opacity-100 transition-opacity duration-250"
+        show-external-icon="true"
+        aria-label="Footer Navigation"
+      ></menu-nav>
+
+      <form class="w-full max-w-xs max-md:max-w-none text-sm max-md:bg-page-alt max-md:p-6 max-md:rounded-2xl" data-members-form="subscribe">
+            <input type="hidden" value="Feed" data-members-newsletter />
+            <input type="hidden" value="Flow" data-members-newsletter />
+            <input type="hidden" value="Luno" data-members-newsletter />
+
+        <div class="mb-4">
+              <p class="font-body text-xl opacity-70 -mt-1 mb-1">
+                Subscribe to our newsletter
+              </p>
+              <p class="text-sm text-content-alt">
+                Be the first to know about new posts and updates
+              </p>
+        </div>
+        <div class="relative mb-3">
+          <div class="relative">
+            <span data-icon="mail" class="absolute left-4 top-1/2 -translate-y-1/2 opacity-70 z-10"></span>
+            <input type="email" data-members-email placeholder="john.doe@email.com" required name="email" class="pl-12"/>
+          </div>
+
+          <div data-content="loading" class="absolute inset-0 gap-3 items-center bg-page max-md:bg-page-alt fade-in -m-2 px-2 z-10">
+            <svg-icon class="w-8 h-8 animate-spin" icon="loader-circle"></svg-icon>
+            <div class="text-sm max-w-xs">Subscribing...</div>
+          </div>
+
+          <div data-content="success" class="absolute inset-0 gap-3 items-center bg-page max-md:bg-page-alt fade-in -m-2 px-2 z-10">
+            <svg-icon class="w-8 h-8 text-green-500" icon="circle-check"></svg-icon>
+            <div class="text-sm max-w-xs">Your magic link is sent. <br/> Please check your email.</div>
+          </div>
+
+          <div data-content="error" class="absolute inset-0 gap-3 items-center bg-page max-md:bg-page-alt fade-in -m-2 px-2 z-10">
+            <svg-icon class="w-8 h-8 text-red-500" icon="circle-alert"></svg-icon>
+            <div class="text-sm max-w-xs" data-members-error>Failed to send the magic link. <br/> Please refresh the page and try again.</div>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full group">
+          Subscribe
+          <span class="mt-0.5 text-xs -mr-1 opacity-0 max-w-0 group-hover:max-w-3 group-hover:opacity-100 transition-all duration-300 ease-out-cubic translate-x-0.5 group-hover:translate-x-0 group-hover:mr-0" data-icon="arrow_right"></span>
+        </button>
+      </form>
+    </div>
+    <div class="flex justify-center items-center h-5.5">
+      <p class="text-xs">
+          &copy; 2026 Published with
+          <a href="https://ghost.org" target="_blank" rel="noopener" class="underline">Ghost</a>
+      </p>
+    </div>
+  </div>
+</footer>  </div>
+</div>
+
+
+    
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSQ6559T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>
