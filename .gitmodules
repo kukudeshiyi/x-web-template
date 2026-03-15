@@ -1,0 +1,4 @@
+[submodule "x1"]
+	path = x1
+	url = git@github.com:kukudeshiyi/x1.git
+	branch = new-style
