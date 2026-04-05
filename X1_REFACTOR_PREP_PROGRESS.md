@@ -261,20 +261,48 @@
 
 ### Step 7. 建立静态搜索索引流程
 
-状态：pending
+状态：completed
 
-计划改动：
+实际改动：
 
-- 在构建时生成静态搜索索引
-- 定义未来 header 搜索使用的数据格式
+- 新增搜索索引纯函数：
+  - `x1/app/lib/search-index.mjs`
+- 新增搜索索引生成脚本：
+  - `x1/scripts/generate-search-index.mjs`
+- 调整构建流程：
+  - `yarn build` 在 `next build` 后自动生成 `out/search-index.json`
+- 当前静态搜索索引内容包括：
+  - `locales`
+  - `fields`
+  - `documents`
+- 每条 document 当前包含：
+  - `id`
+  - `locale`
+  - `slug`
+  - `url`
+  - 以及 `site.config.mjs` 中 `search.fields` 指定的字段
+- 当前索引字段来自配置：
+  - `title`
+  - `description`
+  - `keywords`
+  - `tags`
+  - `contentText`
 
 涉及文件：
 
-- 暂无
+- `x1/app/lib/search-index.mjs`
+- `x1/scripts/generate-search-index.mjs`
+- `x1/package.json`
+- `x1/tests/config/config.spec.cjs`
 
 验证方式：
 
-- 尚未开始
+- `cd x1 && yarn build` 通过
+- `cd x1 && yarn test` 通过
+- 新增 `CFG-004D`
+  - 校验搜索索引纯函数会把 searchable 文章映射成配置要求的字段
+- 新增 `CFG-005B`
+  - 校验 `out/search-index.json` 已生成，且与编译文章数量和 URL 结构一致
 
 ### Step 8. 准备 tag / author 的数据层与路由层
 
