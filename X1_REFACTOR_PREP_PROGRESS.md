@@ -216,25 +216,48 @@
 
 ### Step 6. 建立统一内容查询层
 
-状态：pending
+状态：completed
 
-计划改动：
+实际改动：
 
-- 增加统一查询函数，用于：
-  - 按 locale 取文章
-  - 按 tag 取文章
-  - 取首页 hero 数据
-  - 取首页区块数据
-  - 取搜索文档
-  - 取 tag 页面数据
+- 新增统一查询层：
+  - `x1/app/lib/content.mjs`
+- 落地的查询函数包括：
+  - `getAllPosts`
+  - `getPostsByLocale`
+  - `getPostByLocaleAndSlug`
+  - `getAllPostParams`
+  - `getTagDefinition`
+  - `getPostsByTag`
+  - `getHomepageHeroPosts`
+  - `getHomepageSections`
+  - `getTagPageData`
+  - `getSearchDocuments`
+- 将现有入口切到查询层：
+  - 首页
+  - 文章页
+  - sitemap
+- 首页文章卡片优先使用 `listImage`
+- 文章页头图改为使用 `coverImage`
+- 当前 `hero` 配置为空，因此查询层返回：
+  - `featuredPost: null`
+  - `secondaryPosts: []`
+  这是当前配置下的预期行为，不做隐式补位
 
 涉及文件：
 
-- 暂无
+- `x1/app/lib/content.mjs`
+- `x1/app/[lang]/page.jsx`
+- `x1/app/[lang]/posts/[id]/page.jsx`
+- `x1/app/sitemap.js`
+- `x1/tests/config/config.spec.cjs`
 
 验证方式：
 
-- 尚未开始
+- `cd x1 && yarn build` 通过
+- `cd x1 && yarn test` 通过
+- 新增 `CFG-004C`
+  - 校验查询层的 locale 过滤、tag 过滤、首页区块、tag 页面数据、搜索文档与配置一致
 
 ### Step 7. 建立静态搜索索引流程
 
