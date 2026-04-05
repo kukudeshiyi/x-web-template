@@ -306,28 +306,64 @@
 
 ### Step 8. 准备 tag / author 的数据层与路由层
 
-状态：pending
+状态：completed
 
-计划改动：
+实际改动：
 
-- 准备 tag 页的数据和 metadata 层
-- 准备 author 页的数据和 metadata 层
+- 基于现有查询层落地：
+  - `/{lang}/author`
+  - `/{lang}/tags/{slug}`
+- author 页面改为读取 `site.config.mjs` 中的作者信息
+- 当前 author 配置已补齐：
+  - `name`
+  - `title`
+  - `bio`
+  - `avatar`
+  - `email`
+- 删除旧的 `about` 页面实现，改由新的 author 页面承接
+- tag 页面当前支持：
+  - `all`
+  - `payment`
+  - `travel`
+  - `daily`
+  - `culture`
+- tag 页面已接入：
+  - metadata
+  - breadcrumb JSON-LD
+  - 文章列表数据层
+- sitemap 已纳入：
+  - author 路由
+  - 全部 tag 路由
+- tag 路由、sitemap 和对应配置测试不再写死 tag 列表
+  - 已统一从 `site.config.mjs` 读取 tag slugs
+  - 通过统一内容查询层暴露 `getTagSlugs`
 
 涉及文件：
 
-- 暂无
+- `x1/config/site.config.mjs`
+- `x1/app/[lang]/author/page.jsx`
+- `x1/app/[lang]/tags/[slug]/page.jsx`
+- `x1/app/sitemap.js`
+- `x1/tests/config/config.spec.cjs`
+- `x1/app/[lang]/about/page.jsx`（删除）
 
 验证方式：
 
-- 尚未开始
+- `cd x1 && yarn build` 通过
+- `cd x1 && yarn test` 通过
+- 新增 `CFG-005C`
+  - 校验 author / tag 路由已进入 sitemap 且已生成产物
 
 ### Step 9. 视情况准备 contact 的数据层与路由层
 
-状态：pending
+状态：skipped
 
-计划改动：
+实际结论：
 
-- 只有在确认 contact 页要进第一阶段时才执行
+- 当前先跳过
+- 原因：
+  - contact 不属于 UI 重构前的基础层能力
+  - 等 UI 重构完成后，再根据最终信息架构决定是否需要接入
 
 涉及文件：
 
@@ -335,21 +371,34 @@
 
 验证方式：
 
-- 尚未开始
+- 不执行代码改动
 
 ### Step 10. 确认 UI 前置执行基线完成
 
-状态：pending
+状态：completed
 
-计划改动：
+实际结论：
 
 - 确认所有 UI 前准备工作已经完成
 - 确认仓库已具备进入单独 UI 重构计划的条件
+- 当前已完成的基础层包括：
+  - 配置真源与 locale 一致性
+  - 文章 frontmatter 契约
+  - 编译期 TOC 提取
+  - 统一内容查询层
+  - 静态搜索索引
+  - author / tag 数据层与路由层
+- 当前未做但不阻塞 UI 计划的项：
+  - contact 路由层
+- 结论：
+  - 可以进入单独的 UI 重构规划与实施阶段
 
 涉及文件：
 
-- 暂无
+- `X1_REFACTOR_PREP_PROGRESS.md`
 
 验证方式：
 
-- 尚未开始
+- `cd x1 && yarn build` 通过
+- `cd x1 && yarn test` 通过
+- 当前全套测试：`23 passed`
