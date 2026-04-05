@@ -176,20 +176,43 @@
 
 ### Step 5. 增加编译期 TOC 提取能力
 
-状态：pending
+状态：completed
 
-计划改动：
+实际改动：
 
-- 在内容编译阶段提取 TOC
-- 让文章数据暴露 TOC，供后续页面消费
+- 在 `x1/content-collections.ts` 中将 `content` 显式加入 schema
+- 在内容编译阶段直接从 MDX 正文提取标题结构，生成 `tocItems`
+- `tocItems` 当前结构为：
+  - `id`
+  - `title`
+  - `depth`
+- 提取范围为正文中的 `##` 到 `######`
+- 当文章 frontmatter 中 `toc: true` 时，编译产物必须包含 `tocItems`
+- 对当前没有正文标题结构的两篇 `pay-in-china` 总览文章，将 `toc` 调整为 `false`
+- 在现有配置测试中扩展 `CFG-005A`
+  - 不只校验 frontmatter 契约
+  - 还校验编译后的 `content` 与 `tocItems` 契约
+- 将 TOC 提取逻辑抽到独立纯函数模块，便于后续 UI 层复用与单独测试
+- 新增 `CFG-004B`
+  - 用固定输入样例直接测试 TOC 提取纯函数
+  - 覆盖重复标题去重、锚点清洗和中文标题 slug 生成
 
 涉及文件：
 
-- 暂无
+- `x1/content-collections.ts`
+- `x1/tests/config/config.spec.cjs`
 
 验证方式：
 
-- 尚未开始
+- `cd x1 && yarn build` 通过
+- `cd x1 && yarn test` 通过
+- 构建日志中原有的 `implicit content property` deprecation warning 已消失
+- `CFG-005A` 已覆盖：
+  - `content`
+  - `tocItems`
+  - `tocItems[].id`
+  - `tocItems[].title`
+  - `tocItems[].depth`
 
 ### Step 6. 建立统一内容查询层
 
