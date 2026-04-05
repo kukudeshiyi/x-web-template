@@ -99,9 +99,9 @@
 
 ### Step 3. 扩展 `content-collections.ts` schema
 
-状态：pending
+状态：completed
 
-计划改动：
+实际改动：
 
 - 为文章 schema 增加：
   - `tags`
@@ -110,30 +110,69 @@
   - `searchable`
   - `listImage`
   - `coverImage`
+- 这些新增字段当前都先按兼容模式接入：
+  - `tags` 允许字符串或数组，并统一转换为数组
+  - `pageType` 默认回落为 `classic`
+  - `toc` 默认回落为 `true`
+  - `searchable` 默认回落为 `true`
+  - `listImage` 默认回落为现有 `image`
+  - `coverImage` 默认回落为现有 `image`
+- 这样做的目的是：
+  - 不阻塞现有内容构建
+  - 为 Step 4 单独补齐 frontmatter 留出空间
 
-涉及文件：
+修改文件：
 
-- 暂无
+- `x1/content-collections.ts`
 
 验证方式：
 
-- 尚未开始
+- `cd x1 && yarn build` 通过
+- `cd x1 && yarn test` 通过
+- 中途产生了 `.content-collections` 下的大量生成物缓存变更
+- 这些变更已全部还原，只保留 `content-collections.ts` 的有效改动
 
 ### Step 4. 补齐现有文章 frontmatter
 
-状态：pending
+状态：completed
 
-计划改动：
+实际改动：
 
-- 更新现有文章 frontmatter，使当前文章都满足新 schema
+- 为当前全部 24 篇文章补齐新增字段：
+  - `tags`
+  - `pageType`
+  - `toc`
+  - `searchable`
+  - `listImage`
+  - `coverImage`
+- `listImage` 和 `coverImage` 当前都先复用原有 `image`
+- 所有文章当前统一补为：
+  - `pageType: classic`
+  - `toc: true`
+  - `searchable: true`
+- 按文章主题补齐分类：
+  - 支付类：`payment`
+  - 出行类：`travel`
+  - 日常类：`daily`
+  - 文化类：`culture`
+- 在 `content-collections.ts` 中同步把这些字段从“兼容默认值”改为“schema 必填”
 
-涉及文件：
+修改文件：
 
-- 暂无
+- `x1/content-collections.ts`
+- `x1/content/en/posts/*.mdx`
+- `x1/content/zh/posts/*.mdx`
 
 验证方式：
 
-- 尚未开始
+- `cd x1 && yarn build` 通过
+- `cd x1 && yarn test` 通过
+- 构建通过说明：
+  - 现有文章 frontmatter 已经满足 schema 必填要求
+- 全量测试通过说明：
+  - 这一步没有破坏现有页面、SEO 和语言切换逻辑
+- 补充 `CFG-005A`：直接扫描 `.content-collections/generated/allPosts.js` 的编译产物，校验文章所有非可选字段契约，避免 `content-collections` 仅丢弃无效文章却不让 build 失败的问题
+- 验证后已清理 `.content-collections` 生成物，只保留有效改动
 
 ### Step 5. 增加编译期 TOC 提取能力
 
